@@ -1,11 +1,34 @@
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  &__logo-slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+    flex: 1;
+
+    &__logo {
+      width: 125px;
+    }
+
+    &__slogan {
+      text-align: center;
+      font-size: 22px;
+      color: #1EEA00;
+    }
+  }
+
   &__buttons {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
     &__register {
-      // background: wheat;
       color: #004B40;
       font-size: 16px;
       font-weight: 700;
@@ -21,8 +44,10 @@
     }
   }
 
-
   ion-button {
     height: 60px;
   }
 }
+
+
+
