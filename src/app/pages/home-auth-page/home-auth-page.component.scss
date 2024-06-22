@@ -1,0 +1,28 @@
+.content {
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__register {
+      // background: wheat;
+      color: #004B40;
+      font-size: 16px;
+      font-weight: 700;
+      --background: #1EEA00;
+    }
+
+
+    &__login {
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 600;
+      --background: #004B40;
+    }
+  }
+
+
+  ion-button {
+    height: 60px;
+  }
+}
