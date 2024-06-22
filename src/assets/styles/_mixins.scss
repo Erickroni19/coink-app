@@ -1,0 +1,8 @@
+@use "variables.scss" as variables;
+
+
+@mixin button-styles($color,$font-size, $font-weight) {
+  color: variables.color($color);
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
