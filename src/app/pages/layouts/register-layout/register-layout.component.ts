@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
+import { arrowBack } from 'ionicons/icons';
+
 @Component({
   selector: 'app-register-layout',
   standalone: true,

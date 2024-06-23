@@ -1,7 +1,29 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-title class="ion-text-center">NÚMERO CELULAR</ion-title>
+<ion-header class="header ion-no-border">
+  <ion-toolbar class="header__toolbar">
+
+    <!-- <ion-grid>
+      <ion-row>
+
+      </ion-row>
+    </ion-grid> -->
+    <ion-buttons  class="header__toolbar__buttons" slot="start">
+      <ion-button class="header__toolbar__buttons__button">
+        <ion-icon
+          class="header__toolbar__buttons__button__icon"
+          src="assets\images\icons\arrow_back.svg"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header__toolbar__title">NÚMERO CELULAR</ion-title>
+
   </ion-toolbar>
+  <ion-radio-group class="header__tracking-bar" value="primary">
+    <ion-radio value="primary"></ion-radio>
+    <hr class="divider">
+    <ion-radio value=""></ion-radio>
+    <hr class="divider">
+    <ion-radio value=""></ion-radio>
+  </ion-radio-group>
 </ion-header>
 
 <ion-content>
