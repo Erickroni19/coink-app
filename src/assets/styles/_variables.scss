@@ -6,7 +6,10 @@ $colors: (
   green1: #1EEA004D,
   gray1: #0000001A,
   gray2: #757575,
-  gray3: #D5D5D5
+  gray3: #D5D5D5,
+  gray4: #FAFAFA,
+  gray5: #3535351A,
+  gray6: #AAAAAA
 );
 
 @function color($color-name) {

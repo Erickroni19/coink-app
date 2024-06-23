@@ -1,0 +1,80 @@
+
+<ion-grid class="keypad">
+
+  <ion-row class="keypad__row-input">
+    <ion-col size="12">
+      <ion-input
+        class="keypad__row-input__input"
+        [(ngModel)]="phoneNumber"
+        type="tel"
+        placeholder="(XXX - XXXXXXX)"
+        readonly
+      >
+      </ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="keypad__keys">
+    @for (key of keys; track key) {
+
+      <ion-col size="4">
+
+        @switch (key) {
+          @case ('backspace') {
+            <ion-button
+              class="keypad__keys__button"
+              expand="block"
+              fill="clear"
+              (click)="deleteNumber()"
+            >
+              <ion-icon src="assets\images\icons\backspace.svg"></ion-icon>
+            </ion-button>
+          }
+
+          @case ('checkmark') {
+            <ion-button
+              class="keypad__keys__button"
+              expand="block"
+              fill="clear"
+            >
+              <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+            </ion-button>
+          }
+
+          @default {
+            <ion-button
+              class="keypad__keys__button"
+              expand="block"
+              fill="clear"
+              (click)="addNumber(key)"
+            >{{ key }}</ion-button>
+          }
+        }
+      </ion-col>
+
+      <!-- <ion-col size="4">
+        @if (key !== 'backspace') {
+          <ion-button
+            class="keypad__keys__button"
+            expand="block"
+            fill="clear"
+            (click)="addNumber(key)"
+          >{{ key }}</ion-button>
+        }
+
+      </ion-col> -->
+    }
+  </ion-row>
+
+  <ion-row>
+    <!-- <ion-col size="12">
+      <ion-button expand="block" color="danger" (click)="deleteNumber()">Delete</ion-button>
+    </ion-col> -->
+  </ion-row>
+  <ion-row>
+    <!-- <ion-col size="12">
+      <ion-button expand="block" color="success" (click)="makeCall()">Call</ion-button>
+    </ion-col> -->
+  </ion-row>
+</ion-grid>
+

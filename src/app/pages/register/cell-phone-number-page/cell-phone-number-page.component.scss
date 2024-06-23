@@ -1,0 +1,23 @@
+@use "../../../../assets/styles/variables" as variables;
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: variables.color( primary );
+  width: 100%;
+}
+
+.container {
+  margin-top: 24px;
+  &__header {
+    &__img{
+      width: 30px;
+    }
+
+    &__text{
+      font-size: 17px;
+      color: #757575;
+    }
+  }
+}
+

@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 
-import { arrowBack } from 'ionicons/icons';
 
 @Component({
   selector: 'app-register-layout',
   standalone: true,
-  imports: [RouterOutlet, IonicModule],
+  imports: [ RouterOutlet, IonicModule, RouterModule ],
   templateUrl: './register-layout.component.html',
   styleUrls: ['./register-layout.component.scss'],
 })
 export class RegisterLayoutComponent  implements OnInit {
+
+  public route:string = 'auth';
 
   constructor() { }
 
