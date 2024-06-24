@@ -1,0 +1,71 @@
+@use "../../../../assets/styles/variables" as variables;
+@use "../../../../assets/styles/mixins" as mixins;
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: variables.color( primary );
+  width: 100%;
+}
+
+.container {
+  margin-top: 24px;
+  &__header {
+    &__img{
+      width: 30px;
+    }
+
+    &__text{
+      font-size: 14px;
+      color: variables.color( gray2 );
+
+      &__question{
+        font-size: 17px;
+        color: variables.color( secondary );
+        font-weight: bold;
+        padding: 0px;
+      }
+    }
+  }
+
+  &__important{
+    width: 100%;
+
+    &__title{
+      color: variables.color( secondary );
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    &__text{
+      font-size: 14px;
+      color: variables.color( gray7 );
+    }
+  }
+
+  &__link{
+    font-size: 14px;
+    color: variables.color( secondary );
+    font-weight: bold;
+  }
+
+  &__checkbox{
+    margin-top: 12px;
+    font-size: 14px;
+    color: variables.color( gray7 );
+    --size: 18px;
+    --checkbox-background-checked: #1EEA00;
+    &::part(container){
+      border-color: variables.color( primary );
+    }
+  }
+
+  &__accept {
+    @include mixins.button-styles( secondary, 16px, bolder );
+    --background: #1EEA00;
+    --background-activated: #0733004d;
+    height: 50px !important;
+    margin:24px 0;
+  }
+}
+

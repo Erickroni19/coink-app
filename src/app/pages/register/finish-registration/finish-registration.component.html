@@ -1,0 +1,60 @@
+<ion-content>
+  <ion-grid class="container ion-padding">
+    <ion-row class="container__header" >
+      <ion-col class="container__header__img" size="3">
+        <ion-img
+          src="assets\images\logo\oink-policia.svg"
+          alt="logo coink"
+        >
+        </ion-img>
+      </ion-col>
+      <ion-col class="container__header__text">
+        <strong class="container__header__text__question">ESTAS MUY CERCA DE SER PARTE DE COINK</strong>
+        <p>Solo es necesario que leas detenidamente el contrato que se
+          encuentra al final de esta pantalla y lo aceptes.</p>
+      </ion-col>
+    </ion-row>
+    <hr class="divider">
+    <ion-row class="container__important">
+      <h2 class="container__important__title">LO MÁS IMPORTANTE</h2>
+
+      <p class="container__important__text">Para la apertura del Depósito de Bajo Monto en COINK debes ser una persona natural que de acuerdo con
+        nuestra legislación vigente te encuentres en plena capacidad para adquirir derechos y contraer obligaciones.
+      </p>
+      <p class="container__important__text">Abrirás una cuenta COINK de Bajo Monto la cual te permitirá tener un saldo hasta por 8 salarios mínimos en el mes
+        y realizar débitos por el mismo valor. Si deseas sobrepasar estos límites debes solicitarnos la apertura de un
+        Depósito Ordinario COINK Persona Natural.
+      </p>
+      <p class="container__important__text">
+        Solo puedes tener una cuenta COINK de Bajo Monto y podrás utilizar tu dispositivo móvil para consultar tu saldo, tus movimientos,
+        realizar tus transacciones y administrar tu cuenta.
+      </p>
+      <p class="container__important__text">
+        Recuerda que no necesitas saldo mínimo ni monto inicial para su apertura.
+      </p>
+
+    </ion-row>
+
+    <a class="container__link" href="#" (click)="onLinkClick($event)">Lee tu contrato</a>
+
+    <ion-row>
+      <ion-checkbox class="container__checkbox" labelPlacement="end">He leído y acepto el contrato</ion-checkbox>
+    </ion-row>
+
+     <ion-button
+        class="container__accept"
+        shape="round"
+        expand="block"
+        id="present-alert"
+      >
+        ACEPTAR
+    </ion-button>
+    <ion-alert
+      trigger="present-alert"
+      header="A Short Title Is Best"
+      subHeader="A Sub Header Is Optional"
+      message="A message should be a short, complete sentence."
+      [buttons]="alertButtons"
+    ></ion-alert>
+  </ion-grid>
+</ion-content>
