@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { RegisterLayoutService } from '../../core/services/register-layout.service';
 
 @Component({
   selector: 'app-home-auth-page',
@@ -9,10 +10,12 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './home-auth-page.component.html',
   styleUrls: ['./home-auth-page.component.scss'],
 })
-export class HomeAuthPageComponent  implements OnInit {
+export class HomeAuthPageComponent {
 
-  constructor() { }
+  constructor(private registerLayoutService: RegisterLayoutService) { }
 
-  ngOnInit() {}
+  setLayoutInfo():void {
+    this.registerLayoutService.setTitleRoute({ route: 'auth', title: 'NÚMERO CELULAR' })
+  }
 
 }

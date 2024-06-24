@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { RegisterLayoutService } from '../../../core/services/register-layout.service';
+import { Subscription } from 'rxjs';
+import { TitleRoute } from '../../../core/interfaces/register-layout.interface';
 
 
 @Component({
@@ -11,12 +14,29 @@ import { RouterModule } from '@angular/router';
   templateUrl: './register-layout.component.html',
   styleUrls: ['./register-layout.component.scss'],
 })
-export class RegisterLayoutComponent  implements OnInit {
+export class RegisterLayoutComponent  implements OnInit, OnDestroy {
 
-  public route:string = 'auth';
+  private subscription!: Subscription;
 
-  constructor() { }
+  public titleRoute: TitleRoute = {
+    route: '',
+    title: ''
+  }
 
-  ngOnInit() {}
+  constructor(private registerLayoutService: RegisterLayoutService) { }
+
+  ngOnInit() {
+    this.subscription = this.registerLayoutService.getTitleImage.subscribe( respTitleRoute => {
+      this.titleRoute = respTitleRoute;
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  setLayoutInfo():void {
+   this.registerLayoutService.setTitleRoute(this.titleRoute)
+  }
 
 }

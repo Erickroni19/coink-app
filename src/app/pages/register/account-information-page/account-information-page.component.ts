@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { RegisterLayoutService } from '../../../core/services/register-layout.service';
 
 @Component({
   selector: 'app-account-information-page',
@@ -9,13 +11,23 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './account-information-page.component.html',
   styleUrls: ['./account-information-page.component.scss'],
 })
-export class AccountInformationPageComponent  implements OnInit {
+export class AccountInformationPageComponent implements OnInit{
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private registerLayoutService: RegisterLayoutService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    // this.registerLayoutService.setBackupTitleRoute({ route: 'phone-number', title: 'NÚMERO CELULAR' })
+  }
 
   goToFinishRegistration():void {
     this.router.navigateByUrl('register/finish')
+    this.setLayoutInfo();
+  }
+
+  setLayoutInfo():void {
+   this.registerLayoutService.setTitleRoute({ route: 'account-information', title: 'FINALIZAR' })
   }
 }

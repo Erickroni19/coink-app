@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { RegisterLayoutService } from '../../../core/services/register-layout.service';
 
 @Component({
   selector: 'app-finish-registration',
@@ -9,13 +11,24 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './finish-registration.component.html',
   styleUrls: ['./finish-registration.component.scss'],
 })
-export class FinishRegistrationComponent  implements OnInit {
+export class FinishRegistrationComponent  implements OnInit, OnDestroy {
 
-   alertButtons = ['Action'];
+  // private subscription!: Subscription;
+  alertButtons = ['Action'];
 
-  constructor( private router: Router ) { }
+  constructor(
+    private router: Router,
+    private registerLayoutService: RegisterLayoutService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.registerLayoutService.setBackupTitleRoute({ route: 'account-information', title: 'DATOS DE CUENTA' })
+  }
+
+  ngOnDestroy(): void {
+    // this.subscription.unsubscribe();
+    // this.registerLayoutService.setTitleRoute({ route: 'phone-number', title: 'DATOS DE CUENTA' })
+  }
 
   onLinkClick(event: Event): void {
     event.preventDefault();
