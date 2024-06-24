@@ -38,6 +38,7 @@
                 class="keypad__keys__checkmark__button"
                 shape="round"
                 (click)="goToAccountInformation()"
+                [disabled]="!(phoneNumber.length === 10)"
               >
                 <ion-icon slot="icon-only" name="checkmark"></ion-icon>
               </ion-button>

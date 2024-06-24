@@ -1,94 +1,235 @@
+<!-- <ion-content>
+  <form action="">
+    <ion-grid class="container ion-padding">
+      <ion-row class="container__header">
+        <ion-col class="container__header__img" size="3">
+          <ion-img
+            src="assets\images\logo\oink-m.svg"
+            alt="logo coink"
+          >
+          </ion-img>
+        </ion-col>
+        <ion-col class="container__header__text">
+          <strong class="container__header__text__question">¿CUÁLES SON TUS DATOS</strong>
+          <p>Ahora necesitamos saber algunos datos tuyos.</p>
+        </ion-col>
+      </ion-row>
+      <hr class="divider">
+
+      <ion-row class="container__id">
+        <h2 class="container__id__title">Documento de identidad</h2>
+
+        <ion-list class="container__id__input">
+          <ion-item>
+            <ion-select interface="popover" label="Tipo de documento" labelPlacement="floating">
+              @for (type of documentType; track type) {
+                <ion-select-option [value]="type">{{type.notation}} - {{type.description}}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-input color="gray" label="Número de documento" labelPlacement="floating"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input color="gray" label="Fecha de expedición del documento" labelPlacement="floating"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input color="gray" label="Fecha de nacimiento" labelPlacement="floating"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-select interface="popover" label="Genero" labelPlacement="floating">
+              @for (type of documentType; track type) {
+                <ion-select-option [value]="type">{{type.notation}} - {{type.description}}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-row>
+
+      <ion-row class="container__setting">
+        <h2 class="container__setting__title">Configura tu cuenta</h2>
+
+        <ion-list class="container__setting__input">
+          <ion-item>
+              <ion-input color="gray" type="email" label="Correo electrónico" labelPlacement="floating"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input color="gray" type="email" label="Confirmar correo electrónico" labelPlacement="floating"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input
+              class="container__setting__input"
+              type="password"
+              label="PIN de seguridad"
+              labelPlacement="floating"
+            >
+              <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input
+              class="container__setting__input"
+              type="password"
+              label="Confirmar PIN de seguridad"
+              labelPlacement="floating"
+            >
+              <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
+            </ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-row>
+
+      <ion-button
+        class="container__next"
+        shape="round"
+        expand="block"
+        (click)="goToFinishRegistration()"
+      >
+        SIGUIENTE
+      </ion-button>
+    </ion-grid>
+  </form>
+</ion-content> -->
 <ion-content>
-  <ion-grid class="container ion-padding">
-    <ion-row class="container__header">
-      <ion-col class="container__header__img" size="3">
-        <ion-img
-          src="assets\images\logo\oink-m.svg"
-          alt="logo coink"
-        >
-        </ion-img>
-      </ion-col>
-      <ion-col class="container__header__text">
-        <strong class="container__header__text__question">¿CUÁLES SON TUS DATOS</strong>
-        <p>Ahora necesitamos saber algunos datos tuyos.</p>
-      </ion-col>
-    </ion-row>
-    <hr class="divider">
+  <form [formGroup]="registrationForm" (ngSubmit)="goToFinishRegistration()">
+    <ion-grid class="container ion-padding">
+      <ion-row class="container__header">
+        <ion-col class="container__header__img" size="3">
+          <ion-img src="assets/images/logo/oink-m.svg" alt="logo coink"></ion-img>
+        </ion-col>
+        <ion-col class="container__header__text">
+          <strong class="container__header__text__question">¿CUÁLES SON TUS DATOS</strong>
+          <p>Ahora necesitamos saber algunos datos tuyos.</p>
+        </ion-col>
+      </ion-row>
+      <hr class="divider">
 
-    <ion-row class="container__id">
-      <h2 class="container__id__title">Documento de identidad</h2>
+      <ion-row class="container__id">
+        <h2 class="container__id__title">Documento de identidad</h2>
 
-      <ion-list class="container__id__input">
-        <ion-item>
-          <ion-select interface="popover" label="Tipo de documento" labelPlacement="floating">
-            <ion-select-option value="apples">Apples</ion-select-option>
-            <ion-select-option value="oranges">Oranges</ion-select-option>
-            <ion-select-option value="bananas">Bananas</ion-select-option>
-          </ion-select>
-        </ion-item>
+        <ion-list class="container__id__input">
+          <ion-item>
+            <ion-select formControlName="documentType" interface="popover" label="Tipo de documento" labelPlacement="floating">
+              @for (type of documentType; track type) {
+                <ion-select-option [value]="type">{{type.notation}} - {{type.description}}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+          @if (registrationForm.get('documentType')?.touched && registrationForm.get('documentType')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('documentType')?.errors"
+            ></span>
+          }
 
-        <ion-item>
-            <ion-input color="gray" label="Número de documento" labelPlacement="floating"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input color="gray" label="Fecha de expedición del documento" labelPlacement="floating"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input color="gray" label="Fecha de nacimiento" labelPlacement="floating"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-select interface="popover" label="Genero" labelPlacement="floating">
-            <ion-select-option value="apples">Apples</ion-select-option>
-            <ion-select-option value="oranges">Oranges</ion-select-option>
-            <ion-select-option value="bananas">Bananas</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-    </ion-row>
+          <ion-item>
+            <ion-input formControlName="documentNumber" label="Número de documento" labelPlacement="floating"></ion-input>
+          </ion-item>
+           @if (registrationForm.get('documentNumber')?.touched && registrationForm.get('documentNumber')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('documentNumber')?.errors"
+            ></span>
+           }
 
-    <ion-row class="container__setting">
-      <h2 class="container__setting__title">Configura tu cuenta</h2>
+          <ion-item>
+            <ion-input formControlName="documentIssueDate" label="Fecha de expedición del documento" labelPlacement="floating"></ion-input>
+          </ion-item>
+          @if (registrationForm.get('documentIssueDate')?.touched && registrationForm.get('documentIssueDate')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('documentIssueDate')?.errors"
+            ></span>
+          }
 
-      <ion-list class="container__setting__input">
-        <ion-item>
-            <ion-input color="gray" type="email" label="Correo electrónico" labelPlacement="floating"></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-input formControlName="birthDate" color="gray" label="Fecha de nacimiento" labelPlacement="floating"></ion-input>
+          </ion-item>
+          @if (registrationForm.get('birthDate')?.touched && registrationForm.get('birthDate')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('birthDate')?.errors"
+            ></span>
+          }
+          <ion-item>
+            <ion-select formControlName="gender" interface="popover" label="Género" labelPlacement="floating">
+              @for (type of documentType; track type) {
+                <ion-select-option [value]="type">{{type.notation}} - {{type.description}}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+          @if (registrationForm.get('gender')?.touched && registrationForm.get('gender')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('gender')?.errors"
+            ></span>
+          }
+        </ion-list>
+      </ion-row>
 
-        <ion-item>
-          <ion-input color="gray" type="email" label="Confirmar correo electrónico" labelPlacement="floating"></ion-input>
-        </ion-item>
+      <ion-row class="container__setting">
+        <h2 class="container__setting__title">Configura tu cuenta</h2>
 
-        <ion-item>
-          <ion-input
-            class="container__setting__input"
-            type="password"
-            label="PIN de seguridad"
-            labelPlacement="floating"
-          >
-            <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
-          </ion-input>
-        </ion-item>
+        <ion-list class="container__setting__input">
+          <ion-item>
+            <ion-input formControlName="email" color="gray" type="email" label="Correo electrónico" labelPlacement="floating"></ion-input>
+          </ion-item>
+          @if (registrationForm.get('email')?.touched && registrationForm.get('email')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('email')?.errors"
+            ></span>
+          }
 
-        <ion-item>
-          <ion-input
-            class="container__setting__input"
-            type="password"
-            label="Confirmar PIN de seguridad"
-            labelPlacement="floating"
-          >
-            <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
-          </ion-input>
-        </ion-item>
-      </ion-list>
-    </ion-row>
+          <ion-item>
+            <ion-input formControlName="confirmEmail" color="gray" type="email" label="Confirmar correo electrónico" labelPlacement="floating"></ion-input>
+          </ion-item>
+          @if (registrationForm.get('confirmEmail')?.touched && registrationForm.get('confirmEmail')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('confirmEmail')?.errors"
+            ></span>
+          }
 
-    <ion-button
-      class="container__next"
-      shape="round"
-      expand="block"
-      (click)="goToFinishRegistration()"
-    >
-      SIGUIENTE
-    </ion-button>
-  </ion-grid>
+          <ion-item>
+            <ion-input formControlName="pin" class="container__setting__input" type="password" label="PIN de seguridad" labelPlacement="floating">
+              <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
+            </ion-input>
+          </ion-item>
+          @if (registrationForm.get('pin')?.touched && registrationForm.get('pin')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('pin')?.errors"
+            ></span>
+          }
+
+          <ion-item>
+            <ion-input formControlName="confirmPin" class="container__setting__input" type="password" label="Confirmar PIN de seguridad" labelPlacement="floating">
+              <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
+            </ion-input>
+          </ion-item>
+           @if (registrationForm.get('confirmPin')?.touched && registrationForm.get('confirmPin')?.invalid) {
+            <span customLabel
+              [color]="color"
+              [errors]="registrationForm.get('confirmPin')?.errors"
+            ></span>
+          }
+        </ion-list>
+      </ion-row>
+
+      <ion-button
+        class="container__next"
+        shape="round"
+        expand="block"
+        type="submit"
+        [disabled]="registrationForm.invalid"
+      >
+        SIGUIENTE
+      </ion-button>
+    </ion-grid>
+  </form>
 </ion-content>
