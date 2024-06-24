@@ -21,24 +21,26 @@
 
         @switch (key) {
           @case ('backspace') {
-            <ion-button
-              class="keypad__keys__button"
-              expand="block"
-              fill="clear"
-              (click)="deleteNumber()"
-            >
-              <ion-icon src="assets\images\icons\backspace.svg"></ion-icon>
-            </ion-button>
+            <ion-col class="keypad__keys__backspace">
+              <ion-button
+                class="keypad__keys__backspace__button"
+                fill="clear"
+                (click)="deleteNumber()"
+              >
+                <ion-icon src="assets\images\icons\backspace.svg"></ion-icon>
+              </ion-button>
+            </ion-col>
           }
 
           @case ('checkmark') {
-            <ion-button
-              class="keypad__keys__button"
-              expand="block"
-              fill="clear"
-            >
-              <ion-icon slot="icon-only" name="checkmark"></ion-icon>
-            </ion-button>
+            <ion-col class="keypad__keys__checkmark">
+              <ion-button
+                class="keypad__keys__checkmark__button"
+                shape="round"
+              >
+                <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+              </ion-button>
+            </ion-col>
           }
 
           @default {

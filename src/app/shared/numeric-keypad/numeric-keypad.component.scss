@@ -17,11 +17,35 @@
 
   &__keys{
     &__button{
-      font-size: 25px;
+      font-size: 30px;
       color: variables.color( secondary );
+    }
+
+    &__backspace{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__button{
+        margin-top: -4px;
+        font-size: 30px;
+        color: variables.color( secondary );
+      }
+
+    }
+
+    &__checkmark {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__button{
+        width: 20pt;
+        height: 20pt;
+        font-size: 15px;
+        --background: #1EEA00;
+      }
     }
   }
 }
-// ion-input.custom{
-//   --background: #373737;
-// }
+
