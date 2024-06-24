@@ -18,26 +18,26 @@
     <ion-row class="container__id">
       <h2 class="container__id__title">Documento de identidad</h2>
 
-      <ion-input color="gray" label="Número de documento" labelPlacement="floating"></ion-input>
       <ion-list class="container__id__input">
         <ion-item>
-          <ion-select interface="popover" placeholder="Tipo de documento">
+          <ion-select interface="popover" label="Tipo de documento" labelPlacement="floating">
             <ion-select-option value="apples">Apples</ion-select-option>
             <ion-select-option value="oranges">Oranges</ion-select-option>
             <ion-select-option value="bananas">Bananas</ion-select-option>
           </ion-select>
         </ion-item>
+
         <ion-item>
-          <ion-input class="container__id__input" placeholder="Número de documento"></ion-input>
+            <ion-input color="gray" label="Número de documento" labelPlacement="floating"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input class="container__id__input" placeholder="Fecha de expedición del documento"></ion-input>
+            <ion-input color="gray" label="Fecha de expedición del documento" labelPlacement="floating"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input class="container__id__input" placeholder="Fecha de nacimiento"></ion-input>
+            <ion-input color="gray" label="Fecha de nacimiento" labelPlacement="floating"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-select interface="popover" placeholder="Genero">
+          <ion-select interface="popover" label="Genero" labelPlacement="floating">
             <ion-select-option value="apples">Apples</ion-select-option>
             <ion-select-option value="oranges">Oranges</ion-select-option>
             <ion-select-option value="bananas">Bananas</ion-select-option>
@@ -51,20 +51,21 @@
 
       <ion-list class="container__setting__input">
         <ion-item>
-          <ion-input class="container__setting__input" type="email" placeholder="Correo electrónico"></ion-input>
+            <ion-input color="gray" type="email" label="Correo electrónico" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-input class="container__setting__input" type="email" placeholder="Confirmar correo electrónico"></ion-input>
+          <ion-input color="gray" type="email" label="Confirmar correo electrónico" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-input
             class="container__setting__input"
             type="password"
-            placeholder="PIN de seguridad"
+            label="PIN de seguridad"
+            labelPlacement="floating"
           >
-            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
           </ion-input>
         </ion-item>
 
@@ -72,10 +73,10 @@
           <ion-input
             class="container__setting__input"
             type="password"
-            placeholder="Confirmar PIN de seguridad"
+            label="Confirmar PIN de seguridad"
             labelPlacement="floating"
           >
-            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
           </ion-input>
         </ion-item>
       </ion-list>

@@ -46,15 +46,16 @@
         shape="round"
         expand="block"
         id="present-alert"
+        (click)="goToHome()"
       >
         ACEPTAR
     </ion-button>
-    <ion-alert
+    <!-- <ion-alert
       trigger="present-alert"
       header="A Short Title Is Best"
       subHeader="A Sub Header Is Optional"
       message="A message should be a short, complete sentence."
       [buttons]="alertButtons"
-    ></ion-alert>
+    ></ion-alert> -->
   </ion-grid>
 </ion-content>

@@ -9,6 +9,15 @@
   margin-bottom: 10px;
 }
 
+.divider-inputs {
+  border: none;
+  height: 1px;
+  background-color: variables.color( gray6 );
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: -2px;
+}
+
 .container {
   margin-top: 24px;
 
@@ -72,4 +81,29 @@ ion-input{
 }
 
 
+ion-select {
+  --placeholder-color: #000000;
+  --highlight-color: #AAAAAA;
+  --placeholder-opacity: 1;
+  width: 100%;
+  justify-content: center;
+}
 
+ion-select::part(placeholder),
+ion-select::part(text) {
+  flex: 0 0 auto;
+}
+
+ion-select::part(placeholder)::first-letter {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+ion-select::part(text) {
+  color: black;
+}
+
+// ion-select::part(icon) {
+//   color: #971e49;
+//   opacity: 1;
+// }

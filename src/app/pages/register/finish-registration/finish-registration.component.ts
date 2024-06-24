@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-finish-registration',
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, RouterModule],
   templateUrl: './finish-registration.component.html',
   styleUrls: ['./finish-registration.component.scss'],
 })
@@ -19,6 +19,10 @@ export class FinishRegistrationComponent  implements OnInit {
 
   onLinkClick(event: Event): void {
     event.preventDefault();
+  }
+
+  goToHome():void {
+    this.router.navigateByUrl('home')
   }
 
   succesfulRegistration():void {

@@ -5,6 +5,7 @@ import { HomeAuthPageComponent } from "./home-auth-page/home-auth-page.component
 import { CellPhoneNumberPageComponent } from "./register/cell-phone-number-page/cell-phone-number-page.component";
 import { AccountInformationPageComponent } from "./register/account-information-page/account-information-page.component";
 import { FinishRegistrationComponent } from "./register/finish-registration/finish-registration.component";
+import { SuccesfulRegistrationComponent } from "./succesful-registration/succesful-registration.component";
 
 export const PAGE_ROUTES: Routes = [
   {
@@ -19,5 +20,9 @@ export const PAGE_ROUTES: Routes = [
       { path: 'account-information', component: AccountInformationPageComponent },
       { path: 'finish', component: FinishRegistrationComponent },
     ]
+  },
+  {
+    path: 'home',
+    component: SuccesfulRegistrationComponent,
   }
 ]
