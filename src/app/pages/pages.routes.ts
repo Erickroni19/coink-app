@@ -3,6 +3,7 @@ import { Routes } from "@angular/router";
 import { RegisterLayoutComponent } from "./layouts/register-layout/register-layout.component";
 import { HomeAuthPageComponent } from "./home-auth-page/home-auth-page.component";
 import { CellPhoneNumberPageComponent } from "./register/cell-phone-number-page/cell-phone-number-page.component";
+import { AccountInformationPageComponent } from "./register/account-information-page/account-information-page.component";
 
 export const PAGE_ROUTES: Routes = [
   {
@@ -14,6 +15,7 @@ export const PAGE_ROUTES: Routes = [
     component: RegisterLayoutComponent,
     children: [
       { path: 'phone-number', component: CellPhoneNumberPageComponent },
+      { path: 'account-information', component: AccountInformationPageComponent },
     ]
   }
 ]

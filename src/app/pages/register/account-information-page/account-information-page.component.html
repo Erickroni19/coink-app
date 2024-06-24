@@ -1,0 +1,92 @@
+<ion-content>
+  <ion-grid class="container ion-padding">
+    <ion-row class="container__header">
+      <ion-col class="container__header__img" size="3">
+        <ion-img
+          src="assets\images\logo\oink-m.svg"
+          alt="logo coink"
+        >
+        </ion-img>
+      </ion-col>
+      <ion-col class="container__header__text">
+        <strong class="container__header__text__question">¿CUÁLES SON TUS DATOS</strong>
+        <p>Ahora necesitamos saber algunos datos tuyos.</p>
+      </ion-col>
+    </ion-row>
+    <hr class="divider">
+
+    <ion-row class="container__id">
+      <h2 class="container__id__title">Documento de identidad</h2>
+
+      <ion-input color="gray" label="Número de documento" labelPlacement="floating"></ion-input>
+      <ion-list class="container__id__input">
+        <ion-item>
+          <ion-select interface="popover" placeholder="Tipo de documento">
+            <ion-select-option value="apples">Apples</ion-select-option>
+            <ion-select-option value="oranges">Oranges</ion-select-option>
+            <ion-select-option value="bananas">Bananas</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input class="container__id__input" placeholder="Número de documento"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="container__id__input" placeholder="Fecha de expedición del documento"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input class="container__id__input" placeholder="Fecha de nacimiento"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Genero">
+            <ion-select-option value="apples">Apples</ion-select-option>
+            <ion-select-option value="oranges">Oranges</ion-select-option>
+            <ion-select-option value="bananas">Bananas</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+
+    <ion-row class="container__setting">
+      <h2 class="container__setting__title">Configura tu cuenta</h2>
+
+      <ion-list class="container__setting__input">
+        <ion-item>
+          <ion-input class="container__setting__input" type="email" placeholder="Correo electrónico"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input class="container__setting__input" type="email" placeholder="Confirmar correo electrónico"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            class="container__setting__input"
+            type="password"
+            placeholder="PIN de seguridad"
+          >
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            class="container__setting__input"
+            type="password"
+            placeholder="Confirmar PIN de seguridad"
+            labelPlacement="floating"
+          >
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+
+    <ion-button
+      class="container__next"
+      shape="round"
+      expand="block"
+    >
+      SIGUIENTE
+    </ion-button>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,75 @@
+@use "../../../../assets/styles/variables" as variables;
+@use "../../../../assets/styles/mixins" as mixins;
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: variables.color( primary );
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.container {
+  margin-top: 24px;
+
+  &__header {
+    &__img{
+      width: 30px;
+    }
+
+    &__text{
+      font-size: 17px;
+      color: variables.color( gray2 );
+
+      &__question{
+        color: variables.color( secondary );
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  &__id{
+    width: 100%;
+
+    &__input{
+      width: 95%;
+
+    }
+    &__title{
+      color: variables.color( secondary );
+      font-size: 17px;
+      font-weight: bold;
+    }
+  }
+
+  &__setting{
+    width: 100%;
+    &__input{
+      width: 95%;
+
+    }
+     &__title{
+      color: variables.color( secondary );
+      font-size: 17px;
+      font-weight: bold;
+    }
+  }
+
+  &__next {
+    @include mixins.button-styles( secondary, 16px, bolder );
+    --background: #1EEA00;
+    --background-activated: #0733004d;
+    height: 50px !important;
+    margin:24px 0;
+  }
+}
+
+ion-input{
+  --highlight-color: #AAAAAA;
+  --highlight-color-focused: #AAAAAA;
+  --placeholder-color: #AAAAAA;
+}
+
+
+
