@@ -10,3 +10,6 @@ Ejecute `ng serve` para iniciar un servidor de desarrollo. Despues dirijase hast
 
 Ejecute `ng build` para construir el proyecto. Los archivos de construcción se almacenarán en el directorio `dist/`.
 
+
+Nota: no logré generar el apk con capacitor, es la primera vez que trabajo desarrollo movil y se me han presentado algunos inconvenientes.
+
