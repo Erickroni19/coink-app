@@ -1,3 +1,43 @@
-<p>
-  succesful-registration works!
-</p>
+<!-- src/app/user-information/user-information.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>User Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-text>{{ userInfo.phoneNumber }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Document Type</ion-label>
+      <ion-text>{{ userInfo.documentType.description }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Document Number</ion-label>
+      <ion-text>{{ userInfo.documentNumber }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date of Issue</ion-label>
+      <ion-text>{{ userInfo.dateIssue }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date of Birth</ion-label>
+      <ion-text>{{ userInfo.dateOfBirth }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-text>{{ userInfo.gender }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-text>{{ userInfo.email }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>PIN</ion-label>
+      <ion-text>{{ userInfo.pin }}</ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

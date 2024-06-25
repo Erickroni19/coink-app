@@ -1,0 +1,25 @@
+<ion-header class="header ion-no-border">
+  <ion-toolbar class="header__toolbar">
+    <ion-buttons  class="header__toolbar__buttons" slot="start">
+      <ion-button class="header__toolbar__buttons__button" (click)="goBack()">
+        <ion-icon
+          class="header__toolbar__buttons__button__icon"
+          src="assets\images\icons\arrow_back.svg"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header__toolbar__title">{{title}}</ion-title>
+
+  </ion-toolbar>
+  <ion-radio-group class="header__tracking-bar" value="primary">
+    <ion-radio value="primary"></ion-radio>
+    <hr class="divider">
+    <ion-radio value=""></ion-radio>
+    <hr class="divider">
+    <ion-radio value=""></ion-radio>
+  </ion-radio-group>
+</ion-header>
+
+<ion-content>
+  <ion-router-outlet/>
+</ion-content>

@@ -1,21 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { RegisterLayoutService } from '../../../core/services/register-layout.service';
 import { ReferenceDataService } from '../../../core/services/reference-data.service';
 import { DocumentType } from '../../../core/interfaces/reference-data.interface';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { CustomLabelDirective } from '../../../core/directives/custom-label.directive';
+import { UserInformationService } from '../../../core/services/user-information.service';
+import { RegisterHeaderComponent } from '../../../shared/register-header/register-header.component';
 
 
 @Component({
   selector: 'app-account-information-page',
   standalone: true,
-  imports: [IonicModule, ReactiveFormsModule, CustomLabelDirective],
+  imports: [
+    IonicModule,
+    ReactiveFormsModule,
+    CustomLabelDirective,
+    RegisterHeaderComponent
+  ],
   templateUrl: './account-information-page.component.html',
   styleUrls: ['./account-information-page.component.scss'],
 })
-export class AccountInformationPageComponent implements OnInit{
+export class AccountInformationPageComponent implements OnInit, OnDestroy{
 
   public documentType: DocumentType[] = [];
   public color:string = 'red';
@@ -34,30 +40,27 @@ export class AccountInformationPageComponent implements OnInit{
     }, { validator: [this.isFieldOneEqualFieldTwo('email', 'confirmEmail')] });
 
   constructor(
-    private router: Router,
     private referenceDataService: ReferenceDataService,
+    private userInformationService: UserInformationService,
     private fb: FormBuilder,
-    private registerLayoutService: RegisterLayoutService
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.referenceDataService.getDocumentTypes().subscribe( respDocumentTypes => {
       this.documentType = respDocumentTypes;
     });
+
+  }
+
+  ngOnDestroy(): void {
+
   }
 
   goToFinishRegistration():void {
     this.router.navigateByUrl('register/finish')
-    this.setLayoutInfo();
+    this.setUserInformation();
   }
-
-  setLayoutInfo():void {
-   this.registerLayoutService.setTitleRoute({ route: 'account-information', title: 'FINALIZAR' })
-  }
-
-  // emailMatchValidator(form: FormGroup) {
-  //   return form.get('email')?.value === form.get('confirmEmail')?.value ? null : { 'emailsEquals': true };
-  // }
 
   isFieldOneEqualFieldTwo( formControlName1: string, formControlName2: string) {
 
@@ -76,5 +79,10 @@ export class AccountInformationPageComponent implements OnInit{
     }
   }
 
+  setUserInformation(): void{
+    console.log(this.registrationForm.value);
+
+    this.userInformationService.setUserInformation(this.registrationForm.value);
+  }
 
 }

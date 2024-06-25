@@ -1,4 +1,5 @@
 
+<register-header [routeBAck]="'/'" [title]="'NÚMERO CELULAR'"></register-header>
 <ion-grid class="container ion-padding">
   <ion-row class="container__header" >
     <ion-col class="container__header__img" size="3">
@@ -14,7 +15,7 @@
   </ion-row>
   <hr class="divider">
   <ion-row>
-    <app-numeric-keypad (click)="setLayoutInfo()" />
+    <app-numeric-keypad (getNumber)="setPhoneNumber($event)" />
   </ion-row>
 </ion-grid>
 

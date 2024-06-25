@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { RegisterLayoutService } from '../../core/services/register-layout.service';
 
 @Component({
   selector: 'app-home-auth-page',
@@ -12,10 +11,7 @@ import { RegisterLayoutService } from '../../core/services/register-layout.servi
 })
 export class HomeAuthPageComponent {
 
-  constructor(private registerLayoutService: RegisterLayoutService) { }
+  constructor() { }
 
-  setLayoutInfo():void {
-    this.registerLayoutService.setTitleRoute({ route: 'auth', title: 'NÚMERO CELULAR' })
-  }
 
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Route, Router, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -10,14 +10,15 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './numeric-keypad.component.html',
   styleUrls: ['./numeric-keypad.component.scss'],
 })
-export class NumericKeypadComponent  implements OnInit {
+export class NumericKeypadComponent {
 
   public phoneNumber: string = '';
   public keys: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'backspace', '0', 'checkmark'];
 
-  constructor(private router: Router) { }
+  @Output()
+    public getNumber = new EventEmitter<string>();
 
-  ngOnInit() {}
+  constructor(private router: Router) { }
 
   addNumber(key: string) {
     this.phoneNumber += key;
@@ -27,14 +28,13 @@ export class NumericKeypadComponent  implements OnInit {
     this.phoneNumber = this.phoneNumber.slice(0, -1);
   }
 
-  goToAccountInformation():void {
-    this.router.navigateByUrl('register/account-information')
+  getPhoneNumber() {
+    this.getNumber.emit(this.phoneNumber);
   }
 
-  // makeCall() {
-  //   this.callNumber.callNumber(this.phoneNumber, true)
-  //     .then(res => console.log('Launched dialer!', res))
-  //     .catch(err => console.log('Error launching dialer', err));
-  // }
+  goToAccountInformation():void {
+    this.router.navigateByUrl('register/account-information')
 
+    this.getPhoneNumber()
+  }
 }

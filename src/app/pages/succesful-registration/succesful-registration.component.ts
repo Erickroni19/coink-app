@@ -1,6 +1,9 @@
+import { UserInformation } from './../../core/interfaces/user-information.interface';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { UserInformationService } from '../../core/services/user-information.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-succesful-registration',
@@ -11,9 +14,17 @@ import { IonicModule } from '@ionic/angular';
 })
 export class SuccesfulRegistrationComponent  implements OnInit {
 
-  constructor(private router: Router) { }
+  private subscription!: Subscription;
 
-  ngOnInit() {}
+  public userInfo!: UserInformation;
+
+  constructor(private userInformationService: UserInformationService) { }
+
+  ngOnInit() {
+    this.userInformationService.geUserInformatione.subscribe( userInfo =>{
+      this.userInfo = userInfo;
+    })
+  }
 
 
 
