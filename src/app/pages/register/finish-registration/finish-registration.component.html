@@ -1,4 +1,8 @@
-<register-header [routeBAck]="'register/account-information'" [title]="'FINALIZAR'"></register-header>
+<register-header
+  [routeBAck]="'register/account-information'"
+  [title]="'FINALIZAR'"
+  [buttonTwo]="'check'"
+  [buttonThree]="'check'"></register-header>
 <ion-content>
   <ion-grid class="container ion-padding">
     <ion-row class="container__header" >
@@ -39,7 +43,10 @@
     <a class="container__link" href="#" (click)="onLinkClick($event)">Lee tu contrato</a>
 
     <ion-row>
-      <ion-checkbox class="container__checkbox" labelPlacement="end">He leído y acepto el contrato</ion-checkbox>
+      <ion-checkbox
+        class="container__checkbox"
+        [(ngModel)]="isChecked"
+        labelPlacement="end">He leído y acepto el contrato</ion-checkbox>
     </ion-row>
 
      <ion-button
@@ -47,6 +54,7 @@
         shape="round"
         expand="block"
         id="present-alert"
+        [disabled]="!isChecked"
         (click)="goToHome()"
       >
         ACEPTAR

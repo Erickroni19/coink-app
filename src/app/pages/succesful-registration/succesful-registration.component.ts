@@ -23,6 +23,7 @@ export class SuccesfulRegistrationComponent  implements OnInit {
   ngOnInit() {
     this.userInformationService.geUserInformatione.subscribe( userInfo =>{
       this.userInfo = userInfo;
+      console.log(userInfo);
     })
   }
 

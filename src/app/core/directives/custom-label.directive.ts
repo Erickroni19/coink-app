@@ -72,7 +72,7 @@ export class CustomLabelDirective implements OnInit {
       return;
     }
 
-    if (errors.includes('pinMismatch')) {
+    if (errors.includes('PinNotEqual')) {
       this.htmlElement.nativeElement.innerText = 'Los PIN no coinciden';
       return;
     }

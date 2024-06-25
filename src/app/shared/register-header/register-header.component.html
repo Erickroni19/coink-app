@@ -11,12 +11,12 @@
     <ion-title class="header__toolbar__title">{{title}}</ion-title>
 
   </ion-toolbar>
-  <ion-radio-group class="header__tracking-bar" value="primary">
-    <ion-radio value="primary"></ion-radio>
+  <ion-radio-group class="header__tracking-bar" [value]="'check'">
+    <ion-radio [value]="'check'"></ion-radio>
     <hr class="divider">
-    <ion-radio value=""></ion-radio>
+    <ion-radio [value]="buttonTwo"></ion-radio>
     <hr class="divider">
-    <ion-radio value=""></ion-radio>
+    <ion-radio [value]="buttonThree"></ion-radio>
   </ion-radio-group>
 </ion-header>
 

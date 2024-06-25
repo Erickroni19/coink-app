@@ -7,7 +7,7 @@ import { UserInformation } from '../interfaces/user-information.interface';
 })
 export class UserInformationService {
 
-   private _userInformation = new BehaviorSubject<UserInformation>(
+  private _userInformation = new BehaviorSubject<UserInformation>(
     {
       phoneNumber: '',
       documentType: {
@@ -16,17 +16,15 @@ export class UserInformationService {
         description: ''
       },
       documentNumber: 0,
-      dateIssue: '',
-      dateOfBirth: '',
+      documentIssueDate: '',
+      birthDate: '',
       gender: '',
       email: '',
       pin: ''
     }
   );
 
-  setPhoneNumber(phoneNumber: number){
-
-  }
+  public phoneNumber: string = '';
 
   setUserInformation( userInfo: UserInformation):void {
     this._userInformation.next(userInfo);

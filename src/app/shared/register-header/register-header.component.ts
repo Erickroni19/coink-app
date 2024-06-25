@@ -17,6 +17,12 @@ export class RegisterHeaderComponent{
   @Input()
     public title: string = '';
 
+  @Input()
+    buttonTwo: string = '';
+
+  @Input()
+    buttonThree: string = '';
+
   constructor(private router: Router){}
 
   goBack():void{

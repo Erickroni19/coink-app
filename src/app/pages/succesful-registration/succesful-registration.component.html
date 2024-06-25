@@ -1,38 +1,38 @@
-<!-- src/app/user-information/user-information.page.html -->
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>User Information</ion-title>
+    <ion-title>Información del Usuario</ion-title> <
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label>Phone Number</ion-label>
+      <ion-label>Número de Teléfono</ion-label>
       <ion-text>{{ userInfo.phoneNumber }}</ion-text>
     </ion-item>
     <ion-item>
-      <ion-label>Document Type</ion-label>
+      <ion-label>Tipo de Documento</ion-label>
       <ion-text>{{ userInfo.documentType.description }}</ion-text>
     </ion-item>
     <ion-item>
-      <ion-label>Document Number</ion-label>
+      <ion-label>Número de Documento</ion-label>
       <ion-text>{{ userInfo.documentNumber }}</ion-text>
     </ion-item>
     <ion-item>
-      <ion-label>Date of Issue</ion-label>
-      <ion-text>{{ userInfo.dateIssue }}</ion-text>
+      <ion-label>Fecha de Expedición</ion-label>
+      <ion-text>{{ userInfo.documentIssueDate }}</ion-text>
     </ion-item>
     <ion-item>
-      <ion-label>Date of Birth</ion-label>
-      <ion-text>{{ userInfo.dateOfBirth }}</ion-text>
+      <ion-label>Fecha de Nacimiento</ion-label>
+      <ion-text>{{ userInfo.birthDate }}</ion-text>
     </ion-item>
     <ion-item>
-      <ion-label>Gender</ion-label>
+      <ion-label>Género</ion-label>
       <ion-text>{{ userInfo.gender }}</ion-text>
     </ion-item>
     <ion-item>
-      <ion-label>Email</ion-label>
+      <ion-label>Correo Electrónico</ion-label>
       <ion-text>{{ userInfo.email }}</ion-text>
     </ion-item>
     <ion-item>

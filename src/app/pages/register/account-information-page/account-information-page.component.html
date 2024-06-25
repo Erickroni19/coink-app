@@ -1,4 +1,8 @@
-<register-header [routeBAck]="'register/phone-number'" [title]="'DATOS DE CUENTA'"></register-header>
+<register-header
+  [routeBAck]="'register/phone-number'"
+  [title]="'DATOS DE CUENTA'"
+  [buttonTwo]="'check'"
+></register-header>
 <ion-content>
   <form [formGroup]="registrationForm" (ngSubmit)="goToFinishRegistration()">
     <ion-grid class="container ion-padding">
@@ -70,8 +74,8 @@
           }
           <ion-item>
             <ion-select formControlName="gender" interface="popover" label="Género" labelPlacement="floating">
-              @for (type of documentType; track type) {
-                <ion-select-option [value]="type">{{type.notation}} - {{type.description}}</ion-select-option>
+              @for (gender of genders; track gender) {
+                <ion-select-option [value]="gender">{{gender}}</ion-select-option>
               }
             </ion-select>
           </ion-item>

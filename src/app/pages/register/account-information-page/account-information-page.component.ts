@@ -7,6 +7,7 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validatio
 import { CustomLabelDirective } from '../../../core/directives/custom-label.directive';
 import { UserInformationService } from '../../../core/services/user-information.service';
 import { RegisterHeaderComponent } from '../../../shared/register-header/register-header.component';
+import { UserInformation } from '../../../core/interfaces/user-information.interface';
 
 
 @Component({
@@ -25,9 +26,10 @@ export class AccountInformationPageComponent implements OnInit, OnDestroy{
 
   public documentType: DocumentType[] = [];
   public color:string = 'red';
+  public genders: string[] = ['Masculino', 'Femenino', 'Otro']
 
 
-   public registrationForm = this.fb.group({
+   public registrationForm: FormGroup = this.fb.group({
       documentType: ['', Validators.required],
       documentNumber: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       documentIssueDate: ['', Validators.required],
@@ -37,7 +39,8 @@ export class AccountInformationPageComponent implements OnInit, OnDestroy{
       confirmEmail: ['', [Validators.required, Validators.email]],
       pin: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       confirmPin: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]]
-    }, { validator: [this.isFieldOneEqualFieldTwo('email', 'confirmEmail')] });
+    }, { validator: [this.isFieldOneEqualFieldTwo('email', 'confirmEmail', 'notEqual'),
+       this.isFieldOneEqualFieldTwo('pin', 'confirmPin', 'PinNotEqual'),] });
 
   constructor(
     private referenceDataService: ReferenceDataService,
@@ -62,7 +65,7 @@ export class AccountInformationPageComponent implements OnInit, OnDestroy{
     this.setUserInformation();
   }
 
-  isFieldOneEqualFieldTwo( formControlName1: string, formControlName2: string) {
+  isFieldOneEqualFieldTwo( formControlName1: string, formControlName2: string, nameError: string) {
 
     return ( formGroup: AbstractControl ): ValidationErrors | null => {
 
@@ -70,7 +73,7 @@ export class AccountInformationPageComponent implements OnInit, OnDestroy{
       const fieldValue2 = formGroup.get(formControlName2)?.value;
 
       if ( fieldValue1 !== fieldValue2 ) {
-        formGroup.get(formControlName2)?.setErrors({ notEqual: true });
+        formGroup.get(formControlName2)?.setErrors({ [nameError]: true });
         return { notEqual: true }
       }
 
@@ -80,9 +83,12 @@ export class AccountInformationPageComponent implements OnInit, OnDestroy{
   }
 
   setUserInformation(): void{
-    console.log(this.registrationForm.value);
+    const userInfo:UserInformation  = {
+      phoneNumber: this.userInformationService.phoneNumber,
+      ...this.registrationForm.value
+    }
 
-    this.userInformationService.setUserInformation(this.registrationForm.value);
+    this.userInformationService.setUserInformation(userInfo);
   }
 
 }

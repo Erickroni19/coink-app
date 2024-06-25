@@ -4,8 +4,8 @@ export interface UserInformation {
   phoneNumber?: string,
   documentType: DocumentType,
   documentNumber: number,
-  dateIssue: string,
-  dateOfBirth: string,
+  documentIssueDate: string,
+  birthDate: string,
   gender: string,
   email: string,
   pin: string
