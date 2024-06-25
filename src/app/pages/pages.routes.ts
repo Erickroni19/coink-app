@@ -6,7 +6,6 @@ import { CellPhoneNumberPageComponent } from "./register/cell-phone-number-page/
 import { AccountInformationPageComponent } from "./register/account-information-page/account-information-page.component";
 import { FinishRegistrationComponent } from "./register/finish-registration/finish-registration.component";
 import { SuccesfulRegistrationComponent } from "./succesful-registration/succesful-registration.component";
-import { Component } from '@angular/core';
 
 export const PAGE_ROUTES: Routes = [
   {
